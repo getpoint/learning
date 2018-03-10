@@ -1,4 +1,4 @@
-/* Use thread_cond and list_link.
+/* Use thread_cond and link_list.
  * Reenter test: when 2 threads put element to list_link at same time, 
  * check if element is put to list_link sort by time.
  */

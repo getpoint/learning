@@ -1,4 +1,4 @@
-/* GENERIC_MAX(type) will generate the func type_max, GENERIC_MAX(float) generate float max.
+/* GENERIC_MAX(type) will generate the func type_max, GENERIC_MAX(float) generate float_max.
  * Use GENERIC_MAX can easily generate func to compare num in same type, amazing!
  */
 
@@ -14,7 +14,7 @@ type type##_max(type x, type y) \
 }
 
 // C99 support variable arguments in micro func. */
-// ## before __VA_ARGS__ can ignore the "," if there is only on argument.
+// ## before __VA_ARGS__ can ignore the "," if there is only one argument.
 #define debug(fmt, ...) \
     do { \
         printf(fmt, ##__VA_ARGS__); \
