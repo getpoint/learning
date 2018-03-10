@@ -4,7 +4,7 @@ CFLAGS += -I.
 LDFLAGS = -L.
 LIBS = -lpthread
 
-APPS = qsort bank_transfer reenter_test micro_func raw_socket parse_url
+APPS = qsort bank_transfer reenter_test micro_func raw_socket parse_url cmd_agentd
 CLEAN_APPS = $(APPS:%=%_clean)
 
 all: $(APPS)
@@ -70,3 +70,12 @@ parse_url.o: %.o:%.c
 
 parse_url_clean:
 	rm -f parse_url.o parse_url
+
+cmd_agentd: %:%.o link_list.o
+	$(CC) $(LDFLAGS) $(LIBS) $^ -o $@
+
+cmd_agentd.o: %.o:%.c
+	$(CC) -c $(CFLAGS) $^ -o $@
+
+cmd_agentd_clean: link_list_clean
+	rm -f cmd_agentd.o cmd_agentd
