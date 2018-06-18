@@ -55,7 +55,7 @@ int parse_url(const char *url, char *host, unsigned int *port, char *path)
             }
 
             *port = (unsigned int)strtol(str_port, &p, 10);
-            if (p != '\0' || *port > 0xffff) {
+            if (*p != '\0' || *port > 0xffff) {
                 // return if url is wrong like "http://test.com:1a" or "http://test.com:111111111"
                 return PARSE_FAIL;
             }
